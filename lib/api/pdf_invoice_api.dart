@@ -14,18 +14,17 @@ class PdfInvoiceApi {
   static Future<File> generate(Invoice invoice) async {
     final pdf = Document();
 
-    // pdf.addPage(MultiPage(
-    //   build: (context) => [
-    //     Text("")
-    //    // buildHeader(invoice),
-    //     // SizedBox(height: 3 * PdfPageFormat.cm),
-    //     // buildTitle(invoice),
-    //     // buildInvoice(invoice),
-    //     // Divider(),
-    //     // buildTotal(invoice),
-    //   ],
-    //   footer: (context) => buildFooter(invoice),
-    // ));
+    pdf.addPage(MultiPage(
+      build: (context) => [
+        // buildHeader(invoice),
+        // SizedBox(height: 3 * PdfPageFormat.cm),
+        // buildTitle(invoice),
+        // buildInvoice(invoice),
+        // Divider(),
+        // buildTotal(invoice),
+      ],
+      footer: (context) => buildFooter(invoice),
+    ));
     // final font = await PdfGoogleFonts.nunitoExtraLight();
     // var myFont = Font.ttf();
     pdf.addPage(
@@ -33,8 +32,8 @@ class PdfInvoiceApi {
         pageFormat: PdfPageFormat.a4,
         build: (Context context) {
           return Center(
-            child: Text('Hello World',
-
+            child: Text(
+              'Hello World',
             ),
           ); // Center
         },
